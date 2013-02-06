@@ -1,0 +1,40 @@
+<div class="bootstrap-twitter">
+
+  <%= form_for @credit_card, :url => payment_pay_paytech_path do |f| %>
+
+    <% @credit_card.errors.full_messages.each do |msg| %>
+      <p><%= msg %></p>
+    <% end %>
+
+    <fieldset class="inputs">
+      <div class="controls">
+        <%= f.label "Cardholder's Name" %>
+        <%= text_field :card,:name_on_card, autocomplete: "off" %>
+      </div>
+
+      <%= f.label :credit_card_number, class: 'inline' %>
+
+      <div class="controls controls-rows">
+        <%= f.text_field :number, autocomplete: "off", inputmode:"numeric" %>
+        <span class="card-type label label-success">Visa</span>
+        <span class="invalid-card-msg label label-important">Invalid Card Number</span>
+      </div>
+
+      <div class="cvv">
+        <%= f.label :verification_value, "Card Verification Value" %>
+        <%= f.text_field :verification_value, class: 'span1', placeholder: 'CVV2' %>
+        <%= image_tag "catarse/cvv2_sm.gif", class: "cvv2" %>
+      </div>
+
+      <%= f.label :expiration_date %>
+      <div class="controls controls-rows">
+        <%= date_select :card_expires_on, :card_expires_on, {:discard_day => true, :start_year => Date.today.year, :end_year => (Date.today.year+10), :add_month_numbers => true}, class: 'span2' %>
+      </div>
+
+      <p><%= f.submit "Submit" %></p>
+
+    </fieldset>
+
+  <% end %>
+
+</div>

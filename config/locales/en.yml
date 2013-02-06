@@ -1,0 +1,15 @@
+en:
+  projects:
+    backers:
+      review:
+        paytech: 'Paytech'
+        international:
+          section_title: 'You will be directed to the Paytech site to complete payment.'
+          user_document_label: 'CPF / CNPJ (only for Brazilians)'
+          button: 'Redirect to Paytech'
+      checkout:
+        paytech_cancel: "Your Paytech payment was canceled. Please try again."
+        paytech_description: "Back project %{project_name} with %{value}"
+        paytech_error: "Ooops. There was an error while sending your payment to Paytech. Please try again."
+        credit_card_invalid: "Please enter a valid credit card"
+        success: "Your back was successfully made. Thanks a lot!"
