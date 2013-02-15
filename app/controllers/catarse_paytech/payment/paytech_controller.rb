@@ -46,6 +46,8 @@ module CatarsePaytech::Payment
 
           backer.update_attribute :payment_method, 'Paytech'
 
+          Rails.logger.info "-----> #{response.inspect}"
+
           unless response.success?
             paytech_flash_error
             return redirect_to main_app.review_project_backers_path(backer_id: backer.id, project_id: backer.project.id, accepted_terms: true)
